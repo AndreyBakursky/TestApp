@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"
+  <meta http-equiv="X-UA-Compatible" contant="ie=edge">
+  <title>{% block title %}{% endblock title %}</title>
+  <!div style="background: url(https://i.postimg.cc/ZnHTP71s/aircraft-airplane-boat-1575833.jpg)" class="page-holder bg-cover">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h4 class="my-0 mr-md-auto font-weight-normal">ТестБанк</h4>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-secondary" href="{% url 'main' %}">Главная</a>
+    <a class="p-2 text-success" href="{% url 'new_transaction' %}">Выполнить перевод</a>
+    <a class="p-2 text-primary" href="#">Мои операции</a>
+    <a class="p-2 text-warning" href="{% url 'info' %}">Информация</a>
+  </nav>
+  <a class="btn btn-outline-primary" href="{% url 'sign_up'%}">Создать</a>
+  <a class="btn btn-outline-primary" href="{% url 'log_in' %}">Войти</a>
+</div>
+
+<div class="container">
+  {% block content %}{% endblock content %}
+</div>
+
+</body>
+</html>
