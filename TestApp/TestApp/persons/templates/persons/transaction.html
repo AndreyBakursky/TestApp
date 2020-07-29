@@ -1,0 +1,47 @@
+{% extends 'home/base.html' %}
+
+{% block title %}
+Транзакции
+{% endblock title %}
+
+{% block content %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Перевод средств</h1>
+  <p></p>
+  <p class="lead">Выберите нужного пользователя и необходимую сумму перевода.</p>
+  <p class="lead">Отправитель</p>
+  {% for cl in clients_of_bank %}
+  <div class="custom-control custom-radio text-center">
+    <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
+    <label class="custom-control-label" for="defaultUnchecked">{{cl.name}}</label>
+  </div>
+  {% endfor %}
+
+  <p></p>
+  <p class="lead">Получатель</p>
+  {% for cl in clients_of_bank %}
+  <div class="custom-control custom-radio text-center">
+    <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
+    <label class="custom-control-label" for="defaultUnchecked">{{cl.name}}</label>
+  </div>
+  {% endfor %}
+
+</div>
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <form method="post">
+    {% csrf_token %}
+    {{ form.amount }}<br>
+  </form>
+</div>
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">$ <small class="text-muted">/ долларов</small></h1>
+        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Выполнить перевод</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
